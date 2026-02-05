@@ -24,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->configureDefaults();
+        view()->composer('tasks.dashboard', function ($view) {
+            $view->with('categorias', ['Trabajo', 'Personal', 'Urgente', 'Otros']);
+        });
     }
 
     protected function configureDefaults(): void

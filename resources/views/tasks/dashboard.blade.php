@@ -24,10 +24,16 @@
         <h4><b>Notificaciones</b></h4>
          <ul class="max-w-md space-y-1 text-body list-disc list-inside">
             @forelse ($usuario['notificaciones'] as $tarea)
-                <li>{{ $tarea['mensaje'] }}</li>
+                <li>{{ $loop->iteration }} - {{ $tarea['mensaje'] }}</li>
             @empty
                 <p>No hay notificaciones disponibles.</p>
             @endforelse
+        </ul>
+        <ul>
+            <h4>Categorias</h4>
+            @foreach ($categorias as $categoria)
+                <li>{{ $categoria }}</li>
+            @endforeach
         </ul>
     </div>
 </body>
