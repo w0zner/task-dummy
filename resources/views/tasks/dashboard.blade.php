@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .color-red {
+            color: red;
+        }
+
+        .color-green {
+            color: green;
+        }
+    </style>
 </head>
 <body>
 
@@ -24,7 +33,12 @@
         <h4><b>Notificaciones</b></h4>
          <ul class="max-w-md space-y-1 text-body list-disc list-inside">
             @forelse ($usuario['notificaciones'] as $tarea)
-                <li>{{ $loop->iteration }} - {{ $tarea['mensaje'] }}</li>
+                <li @class([
+                    'color-red' => $loop->first,
+                    'color-green' => $loop->last,
+                ])>
+                    {{ $loop->iteration }} - {{ $tarea['mensaje'] }}
+                </li>
             @empty
                 <p>No hay notificaciones disponibles.</p>
             @endforelse
@@ -35,6 +49,19 @@
                 <li>{{ $categoria }}</li>
             @endforeach
         </ul>
+
+        {{-- @includeIf('tasks.index', ['tareas' => $usuario['tareas']]) --}}
+         @includeWhen(true, 'tasks.index', ['tareas' => $usuario['tareas']])
+
+        @php
+            $ty='error'
+        @endphp
+
+        <x-alert :type="$ty">
+            <x-slot name="title">Alerta de tareas</x-slot>
+            Hola este es un mensaje de alerta desde el componente.
+        </x-alert>
+
     </div>
 </body>
 </html>

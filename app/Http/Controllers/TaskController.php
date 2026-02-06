@@ -81,6 +81,11 @@ class TaskController extends Controller
                 ['id' => 1, 'mensaje' => 'Tienes una nueva tarea asignada.'],
                 ['id' => 2, 'mensaje' => 'La tarea "Revisar reportes" ha sido completada.'],
                 ['id' => 3, 'mensaje' => 'Se ha actualizado la fecha de vencimiento de la tarea "Preparar presentación".']
+            ],
+            'tareas'=> [
+                ['title' => 'Tarea 1', 'content' => 'Tienes una nueva tarea asignada.'],
+                ['title' => 'Tarea 2', 'content' => 'La tarea "Revisar reportes" ha sido completada.'],
+                ['title' => 'Tarea 3', 'content' => 'Se ha actualizado la fecha de vencimiento de la tarea "Preparar presentación".']
             ]
         ];
 
