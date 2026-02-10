@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        .color-red {
-            color: red;
-        }
+@extends('layouts.template')
 
-        .color-green {
-            color: green;
-        }
-    </style>
-</head>
-<body>
+@section('title', 'Dashboard usuarios')
 
+@section('content')
     <script>
         const usuario = @json($usuario);
         console.log('Datos del usuario:', usuario);
     </script>
 
-    <div class="container mx-auto">
+    <x-container width="max-w-7xl">
         <h4><b>Dashboard de usuario</b></h4>
         <p>{{ $usuario['name'] }} - {{ $usuario['email'] }}</p>
         <p>
@@ -62,6 +47,10 @@
             Hola este es un mensaje de alerta desde el componente.
         </x-alert>
 
-    </div>
-</body>
-</html>
+    </x-container>
+@endsection
+
+
+
+
+
