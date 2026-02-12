@@ -37,6 +37,12 @@ Route::prefix('tasks')->name('tareas.')->controller(TaskController::class)->grou
 
 Route::get('/sumar/{a}/{b}', CalculadoraController::class);
 
+Route::get('/prueba', function() {
+   $categories = DB::table('categories')->pluck('name', 'id'); //DB::table('categories')->find(1);
+   //->where('id', '>', 2);
+   return $categories;
+});
+
 /* Route::resource('tasks', TaskController::class)
     ->names('tareas')
     ->parameters(['tasks' => 'tarea']); */
